@@ -23,12 +23,12 @@ The analysis combines data cleaning, exploratory data analysis, statistical test
 ### 1. Air Pollution Data
 
 Source: Our World in Data
-PM2.5 dataset: https://ourworldindata.org/grapher/pm25-air-pollution
+PM2.5 dataset: [Our World in Data](https://ourworldindata.org/grapher/pm25-air-pollution)
 
 ### 2. Health Data
 
 Source: World Bank
-Life expectancy dataset: https://data.worldbank.org/indicator/SP.DYN.LE00.IN
+Life expectancy dataset: [World Bank](https://data.worldbank.org/indicator/SP.DYN.LE00.IN)
 
 ---
 
@@ -74,7 +74,6 @@ Life expectancy dataset: https://data.worldbank.org/indicator/SP.DYN.LE00.IN
 * Multiple Linear Regression provides modest but stable predictive performance.
 * Random Forest achieved high training performance but overfit and generalized poorly.
 * Simpler models were more reliable for this dataset than more complex models.
-* Results reflect association, not causation; confounding variables such as income and healthcare access may partially explain the observed relationship.
 
 ---
 
@@ -87,18 +86,37 @@ Life expectancy dataset: https://data.worldbank.org/indicator/SP.DYN.LE00.IN
 * scipy
 * scikit-learn
 * Jupyter Notebook
+* DVC
 
 ---
 
 ## Repository Structure
 
 ```text
-Air_Pollution_Health_Impact/
+Air_Polution_Health_Impact/
 │── data/
+│   ├── raw/
+│   └── processed/
 │── notebooks/
-│   └── air_pollution_health_impact_project.ipynb
+│   └── air_pollution_health_impact.ipynb
 │── README.md
 │── requirements.txt
+```
+
+---
+
+## Data Version Control (DVC)
+
+This project uses **DVC (Data Version Control)** to track raw datasets during development and support reproducibility.
+
+At the current stage, DVC is configured locally and no external remote storage is connected to the repository.
+
+The required datasets are expected to be available in the local `data/raw/` directory when running the project.
+
+If a DVC remote is added in the future, datasets could be synchronized with:
+
+```bash
+dvc pull
 ```
 
 ---
@@ -106,19 +124,22 @@ Air_Pollution_Health_Impact/
 ## How to Run
 
 1. Clone the repository
-2. Navigate to the project folder
-3. Install dependencies
+2. Install dependencies
+3. Ensure the datasets are available in `data/raw/`
 4. Open the notebook
+5. Run all cells
+
+Example:
 
 ```bash
 git clone <your-repo-link>
-cd Air_Pollution_Health_Impact
+cd Air_Polution_Health_Impact
 pip install -r requirements.txt
-jupyter notebook notebooks/air_pollution_health_impact_project.ipynb
+jupyter notebook
 ```
 
 ---
 
 ## Final Note
 
-This project was developed as a final exam project for a SoftUni's Data Science with Python course.
+This project was developed as a final exam project for the SoftUni Data Science with Python course.
